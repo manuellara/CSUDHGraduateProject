@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-container>
+    <div v-if="this.$store.state.user != null">
+      <Userinfo />
+
+      <Body />
+    </div>
+
+    <div v-else>
+      Please log in
+    </div>
+  </v-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Userinfo from "@/components/Userinfo";
+import Body from "@/components/Body";
 
 export default {
-  name: 'Home',
   components: {
-    HelloWorld
+    Body: Body,
+    Userinfo: Userinfo
+  },
+  data: () => ({}),
+  computed: {
+    userInfo() {
+      return this.$store.state.user;
+    }
   }
-}
+};
 </script>
+<style scoped>
+</style>

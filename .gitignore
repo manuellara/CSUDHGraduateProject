@@ -19,3 +19,13 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# config files
+/src/firebaseconfig.js
+/src/awscreds.json
+
+# node
+/node_modules
+
+#firebase
+.firebase
